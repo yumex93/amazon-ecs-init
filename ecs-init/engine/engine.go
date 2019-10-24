@@ -204,6 +204,8 @@ func (e *Engine) StartSupervised() error {
 			return errors.New("agent exited with terminal exit code")
 		case terminalSuccessAgentExitCode:
 			return nil
+		default:
+			return nil
 		}
 		d := retryBackoff.Duration()
 		log.Warnf("ECS Agent failed to start, retrying in %s", d)
